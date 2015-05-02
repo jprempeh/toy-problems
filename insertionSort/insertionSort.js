@@ -48,6 +48,23 @@ var testingTransform = function(array) {
 
 var insertionSort = function(array
 ) {
-  // Your code goes here. Feel free to add helper functions if needed.
-  return array;
+
+  var results = [];
+
+
+    for (var i = 0; i < array.length; i++) {
+      var obj = array[i];
+      for (var j = 0; j < results.length; j++) {
+        if (array.length === 0) {
+          results.push(obj);
+        } else if (obj.value === array[i].value) {
+          if (obj.order < array[i].order) {
+            results.lastIndexOf(array[i].value - 1).push(obj);
+          }
+        }
+      }
+    }
+  return results;
 };
+
+ //`[{value: 10}, {value: 5, order: 1}, {value: 5, order: 2}]`
