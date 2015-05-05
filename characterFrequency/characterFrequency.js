@@ -37,5 +37,26 @@
 
 
 var characterFrequency = function(string) {
-  return result;
-};
+    var freq = {};
+    var results = [];
+    for (var i=0; i<string.length;i++) {
+      var character = string.charAt(i);
+      if (freq[character]) {
+        freq[character]++;
+      } else {
+        freq[character] = 1;
+      }
+    }
+
+    return freq;
+  };
+
+  function valuesToArray(obj) {
+    return Object.keys(obj).map(function (key) {
+      var results = [];
+      results.push(key, obj[key]);
+      return results; });
+  }
+
+  var objresult = characterFrequency('mississippi');
+  console.log(valuesToArray(objresult)); // returns sorted array
