@@ -53,6 +53,33 @@ var numbersToPlace = {
   1000000000000000000: 'quintillion',
 };
 
-Number.prototype.toEnglish = function () {
+Number.prototype.toEnglish = function (number) {
   // return my value as english words
+  return toEnglish(number);
 };
+
+Number.prototype.toEnglish = function (number) {
+  // return my value as english words
+  return number;
+};
+
+var toEnglish = function(number) {
+  for (var key in numbersToWords) {
+    if (number == key) {
+      return numbersToWords[key];
+    } else if ((number).toString().length == 2) {
+      // if two digit number concat number to word for tenth place and sigle digit place
+      var result;
+      for (var key in numbersToWords) {
+        if(number.toString().charAt(0) == key) {
+          result = numbersToWords[key];
+        }
+        // for second-digit number loop through numbers to Words and get the English word equivalent
+      }
+    }
+    // for three digit, four digit, million, billion numbers, find the number to place
+    // by looping through the numbers to place and numbers to words and finding right number values
+    // and concatenate the words and return the result
+  }
+};
+
