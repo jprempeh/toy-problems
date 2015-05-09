@@ -43,4 +43,27 @@ var phoneDigitsToLetters = {
 
 var telephoneWords = function(digitString) {
   // TODO: return every combination that can be spelled on a phone with these digits
+  var results = []; // array to store results
+
+  var recurseFn = function(myString) {
+
+    if
+  }
+
+  /*
+  * Step 1: Take the first number in the argument and start with the first letter it corresponds to || if 0 or 1 use that number
+  * Step 2: For each subsequent number
+  *           If the number is 0 or 1, place that number in the result string
+*             If the number is not 0 or 1, pick the first letter it could possibly be and use that for the permutation
+*   Step 3: After creating all possible permutations for the last digit in the string, move up a digit and go to the next corresponding letter
+            *   Repeat Step 2
+  * Step 4: once you've done all possible permutations for the last 3 digits move to the next letter for the first digit
+  * Step 5: Once you've done all permutations for all the numbers, return the array
+  *
+  *
+  * */
+
+
 };
+
+
