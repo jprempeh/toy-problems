@@ -23,10 +23,26 @@
  *
 */
 
-var bind = function(
-) {
-  // TODO: Your code here
-};
+//var bind = function(
+//scope, context, obj) {
+//    var func = this;
+//    return function() {
+//        return func.apply(scope);
+//    }
+//};
+
+
+ //var alice = {
+ //      name: 'alice',
+ //  shout: function(){
+ //    alert(this.name);
+ //  }
+ //};
+ //var boundShout = bind(alice.shout, alice);
+ //console.log(boundShout()); // alerts 'alice'
+ //boundShout = bind(alice.shout, {name: 'bob'});
+ //console.log(boundShout()); // alerts 'bob'
+
 
 /*
  * Function.prototype.bind:
@@ -53,7 +69,28 @@ var bind = function(
  *
 */
 
-Function.prototype.bind = function(
-) {
-  // TODO: Your code here
+Function.prototype.bind = function(scope) {
+    var func = this;
+    return function() {
+        return func.apply(scope);
+    };
 };
+
+
+
+ var alice = {
+       name: 'alice',
+   shout: function(){
+     console.log(this.name);
+   }
+ };
+ var boundShout = alice.shout.bind(alice);
+console.log(alice);
+boundShout(); // alerts 'alice'
+ boundShout = alice.shout.bind({name: 'bob'});
+boundShout(); // alerts 'bob'
+
+ var func = function(a, b){ return a + b };
+ var boundFunc = func.bind(null, 'foo');
+ var result = boundFunc('bar');
+ console.log(result === 'foobar'); // true
