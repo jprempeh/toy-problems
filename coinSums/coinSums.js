@@ -60,15 +60,3 @@ var makeChange = function(total){
 
 
 };
-
-
-def countChange(money: Int, coins: List[Int]): Int = {
-    def reduce(money: Int, coins: List[Int], accCounter: Int): Int = {
-    if(money == 0) accCounter + 1
-    else if(money < 0 || coins.isEmpty) accCounter
-    else reduce(money - coins.head, coins, accCounter) + reduce(money, coins.tail, accCounter)
-}
-
-if(money <= 0 || coins.isEmpty) 0
-else reduce(money, coins, 0)
-}
