@@ -21,6 +21,22 @@
  */
 
 var mixEvents = function(obj) {
-  // TODO: Your code here
+  obj.__proto__.on = function(event, callback) {
+      if(!this.hasOwnProperty('events')) {
+        this.events = {};
+      }
+      if (!this.events.hasOwnProperty(event)) {
+        this.events[event] = [];
+      }
+      this.events[event].push(callback);
+    };
+
+  obj.__proto__.trigger = function(event) {
+      var callbacks = this.events[event];
+      var tail = Array.prototype.slice.call(arguments, 1);
+      for (var i = 0; i < callbacks.length; i++) {
+        callbacks[i].apply(this, tail);
+      }
+    };
   return obj;
 };
