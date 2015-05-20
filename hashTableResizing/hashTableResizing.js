@@ -12,9 +12,15 @@ var makeHashTable = function(){
   var storage = [];
   var storageLimit = 4;
   var size = 0;
-  result.insert = function(/*...*/ 
-){
-    // TODO: implement `insert`
+  result.insert = function(key, value){
+    var index = getIndexBelowMaxForKey(key, storageLimit);
+    var bucket = storage[index];
+    var found = false;
+    if (!bucket) {
+      bucket = [];
+      storage[index] = bucket;
+    }
+
   };
 
   result.retrieve = function(/*...*/ 
