@@ -12,6 +12,20 @@
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-var allAnagrams = function(string) {
-  // Your code here.
+var allAnagrams = function(start, string) {
+    var result = [];
+
+    if (string.length === 1) {
+        result.push(start + string);
+        return result;
+    } else {
+        for(var i = 0; i < string.length; i++){
+            var recurse = allAnagrams(string[i], string.substr(0, i) + string.substr(i + 1));
+            for (var j = 0; j < recurse.length; j++) {
+                result.push(start + recurse[j]);
+            }
+        }
+    }
+
+    return result;
 };
