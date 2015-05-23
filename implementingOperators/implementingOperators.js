@@ -34,7 +34,16 @@ var divide = function(x, y) {
 };
 
 var modulo = function(x, y) {
-
+	// if x = 11 and y = 4 result should be 3
+	var zero = x;
+	var remainder;
+	while (zero > 0) {
+		remainder = x - y;
+		zero -= y;
+		if (zero < y) {
+			return zero;
+		}
+	}
 };
 
 
@@ -43,5 +52,5 @@ console.log(multiply(10, 10));
 console.log(divide(100, 10));
 console.log(divide(64, 8));
 console.log(divide(82, 9));
-
+console.log(modulo(102, 10));
 
