@@ -15,6 +15,30 @@
  */
 
 var spiralTraversal = function(matrix){
+  var result = [];
+  var matrixLength = matrix.length;
+  var arrayLength = matrix[0].length;
+  for (var i = 0; i < arrayLength; i++) {
+    result.push(matrix[0][i]);
+  }
+  for (var j = 1; j < matrix.length; j++) {
+    result.push(matrix[j][arrayLength - 1]);
+  }
+  for (var k = arrayLength - 2; k >= 0; k--) {
+    result.push(matrix[matrixLength - 1][k]);
+  }
+  for (var l = 0; l <= arrayLength - 2; l++) {
+    var midArray = Math.floor(matrixLength / 2);
+    result.push(matrix[midArray][l]);
+  }
 
-  // TODO: Implement me!
+  return result;
 };
+
+
+var myMatrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+console.log(spiralTraversal(myMatrix));
