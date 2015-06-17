@@ -17,31 +17,27 @@
 *
 */
 
-var rockPaperScissors = function( rounds ) {
-    // TODO: your solution here
-    // Given that we have a number of rounds
-    // and there are three possible solutions per round (rock paper scissors)
-    // we should randomly decide what the throw is
-    // and push it into an array then after doing that for the number of rounds
-    // return a result
-    var results,
-        possibleResults,
-        decideResult,
-        play;
 
-        results         = [];
-        possibleResults = ["rock", "papers", "scissors"];
-        decideResult    = function() {
-            return possibleResults[Math.floor(Math.random() * possibleResults.length)];
-        };
-        play            = function( rounds ) {
-            var counter = 0;
-            while (counter < rounds){
-                counter++;
-                results.push( decideResult() );
-            }
-            console.log( results );
-            return results;
-        };
-    play( rounds );
+var rockPaperScissors = function (rounds) {
+    // TODO: your solution here
+    rounds = rounds || 3;
+    var result = [];
+    var rpsArray = ['paper', 'rock', 'scissors'];
+    var recurse = function(combination) {
+        if (combination.length === rounds) {
+            result.push(combination);
+            return;
+        }
+
+        for(var i = 0; i < rpsArray.length; i++) {
+            recurse(combination.concat(rpsArray[i]));
+        }
+    console.log(combination);
+    };
+
+    recurse([]);
+
+
 };
+// rockPaperScissors(4)
+rockPaperScissors(4);

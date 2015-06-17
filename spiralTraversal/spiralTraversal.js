@@ -15,30 +15,49 @@
  */
 
 var spiralTraversal = function(matrix){
-  var result = [];
-  var matrixLength = matrix.length;
-  var arrayLength = matrix[0].length;
-  for (var i = 0; i < arrayLength; i++) {
-    result.push(matrix[0][i]);
-  }
-  for (var j = 1; j < matrix.length; j++) {
-    result.push(matrix[j][arrayLength - 1]);
-  }
-  for (var k = arrayLength - 2; k >= 0; k--) {
-    result.push(matrix[matrixLength - 1][k]);
-  }
-  for (var l = 0; l <= arrayLength - 2; l++) {
-    var midArray = Math.floor(matrixLength / 2);
-    result.push(matrix[midArray][l]);
+  var results = [];
+  // use a while loop and keep track of min max row/column indices
+  var startRowIndex = 0;
+  var endRowIndex = matrix.length - 1;
+  var startColIndex = 0;
+  var endCOlIndex = matrix[0].length - 1;
+
+  while(startRowIndex <= endRowIndex && startColIndex <= endCOlIndex) {
+    for (var i = startColIndex; i <= endCOlIndex; i++) {
+      results.push(matrix[startRowIndex[i]]);
+    }
+    startRowIndex++;
+
+    for (var j = startRowIndex; j <= endRowIndex; j++) {
+      results.push(matrix[j][endCOlIndex]);
+    }
+    endCOlIndex--;
+
+    if (startRowIndex <= endRowIndex) {
+      for (var k = endCOlIndex; k >= startColIndex; k--) {
+        results.push(matrix[endRowIndex][k]);
+      }
+      endRowIndex--;
+    }
+
+    if (startColIndex <= endCOlIndex) {
+    for (var m = endRowIndex; m >= startRowIndex; m--) {
+      results.push(matrix[m][startColIndex]);
+    }
+    startColIndex++;
+    }
   }
 
-  return result;
+
+  return results;
+
 };
 
 
 var myMatrix = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+  [1, 2, 3,14],
+  [4, 5, 6, 14],
+  [7, 8, 9, 14],
+  [10, 11, 12, 13]
 ];
 console.log(spiralTraversal(myMatrix));
