@@ -70,3 +70,36 @@ var range = new Range(1,2);
 console.log(range);
 console.log(range.size());
 console.log(range.each(function(g) { console.log('g', g); }));
+var Range = function(start, end, step) {
+	this.storage = {};
+	this.counter = 0;
+	if (!start) {
+		return mynull;
+	} else if (!end) {
+		end = start
+		this.storage.start = true;
+		this.counter++;
+	} else if (step === undefined) {
+
+	}{
+			for(var i = start; i < end; i+=step) {
+				this.storage[i] = true;
+				this.counter++;
+			}
+		}
+	}
+	return this;
+};
+
+Range.prototype.size = function () {
+	return this.counter;
+};
+
+Range.prototype.each = function (callback) {
+	Object.keys(this.storage).forEach(callback);
+};
+
+Range.prototype.includes = function (val) {
+
+};
+// do this in constant space, don't make the array
