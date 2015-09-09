@@ -4,7 +4,7 @@ var makeChange = function(total) {
     var counter = 0; // number of solutions we found
 
     (function recurse (index, remainder) {
-        var coin = coins[index];
+        var coin = currency[index];
         // check to see if we've been through all the coins in the array
         if (index === 0)  {
             // our base case

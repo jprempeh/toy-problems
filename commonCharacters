@@ -1,0 +1,24 @@
+var commonCharacters = function(string1, string2){
+// loop through character
+	var chars = {},
+			stack = [];
+	for (var i = 0; i < string1.length; i++) {
+		for (var j = 0; j < string2.length; j++) {
+			if (string1[i] === string2[j] && string1[i] !== " ") {
+				(chars[string1[i]]) ? chars[string1[i]] = true : stack.push(string1[i]);
+				chars[string1[i]] = true;
+			}
+		}
+	}
+	// if string1 character equal character
+
+// push character to stack, push character flag to true in object‰
+	// if flag in object, ignore
+	// otherwise ignore
+	// return stack
+	return stack.join("");
+
+};
+
+
+console.log(commonCharacters("What is love?", "Baby don't hurt me"));

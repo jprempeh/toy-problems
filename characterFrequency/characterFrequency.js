@@ -37,10 +37,11 @@
 
 
 var characterFrequency = function(string) {
-  var result = {};
-	var list = [];
+  var result = {},
+			list = [],
+	    i;
 
-  for(var i = 0; i < string.length; i++) {
+  for(i = 0; i < string.length; i++) {
     if(result[string[i]]) {
       result[string[i]] += 1;
     } else {
@@ -55,10 +56,17 @@ var characterFrequency = function(string) {
 		list.push(arr);
 	}
 
+	list.sort(function (a,b) {
+		if(a[1] > b[1]) return -1;
+		else if (a[1] < b[1]) return 1;
+		else if (a[0] < b[0]) return -1;
+		else if (a[0] > b[0]) return 1;
+		else return 0;
+	});
+
 	return list;
-  console.log(result);
-	console.log(list);
 };
 
 console.log(characterFrequency('mississippi'));
+console.log(characterFrequency('miaaiaaippi'));
 

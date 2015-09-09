@@ -22,7 +22,7 @@ var firstNonRepeatedCharacter = function(string) {
 			results2.push(prop);
 		}
 	}
-	return results2[0];
+	return results2[0] || 'sorry';
 };
 
-console.log(firstNonRepeatedCharacter('AACBDB'));
+console.log(firstNonRepeatedCharacter('XXXXXXXXXX'));
